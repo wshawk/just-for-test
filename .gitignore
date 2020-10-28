@@ -21,6 +21,7 @@ build/
 *.iws
 .mvn/
 mvnw
+*.cmd
 
 # temp ignore
 *.log
