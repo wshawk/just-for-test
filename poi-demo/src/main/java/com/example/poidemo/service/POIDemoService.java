@@ -10,5 +10,5 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2020/10/28 21:31
  */
 public interface POIDemoService {
-    String export(HttpServletResponse response);
+    void export(HttpServletResponse response);
 }

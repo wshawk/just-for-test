@@ -2,6 +2,8 @@ package com.example.poidemo.controller;
 
 import com.example.poidemo.service.POIDemoService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -20,9 +22,12 @@ public class ExportExcelController {
     @Resource
     POIDemoService poiDemoService;
 
-    @GetMapping("/export")
-    public String export(HttpServletResponse response){
-        return poiDemoService.export(response);
+    @GetMapping("/export_get")
+    public void exportGet(HttpServletResponse response){
+         poiDemoService.export(response);
     }
-
+    @PostMapping("/export_post")
+    public void exportPost(HttpServletResponse response){
+         poiDemoService.export(response);
+    }
 }

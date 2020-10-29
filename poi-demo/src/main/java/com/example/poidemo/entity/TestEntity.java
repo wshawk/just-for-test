@@ -1,5 +1,7 @@
 package com.example.poidemo.entity;
 
+import java.io.Serializable;
+
 /**
  * @author wsHawk
  * @Title: TestEntity
@@ -7,7 +9,8 @@ package com.example.poidemo.entity;
  * @Description: TODO
  * @since 2020/10/28 21:33
  */
-public class TestEntity {
+public class TestEntity implements Serializable {
+    private static final long serialVersionUID = -6926753903520609912L;
     /**
      * 编号
      */
