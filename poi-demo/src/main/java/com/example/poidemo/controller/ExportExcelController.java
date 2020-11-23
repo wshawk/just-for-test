@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.TreeSet;
 
 /**
  * @author wsHawk
@@ -30,4 +34,5 @@ public class ExportExcelController {
     public void exportPost(HttpServletResponse response){
          poiDemoService.export(response);
     }
+    HashMap
 }
