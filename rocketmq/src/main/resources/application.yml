@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: rocketmq
+rocketmq:
+  consumer:
+    consumeThreadMax: 64
+    consumeThreadMin: 20
+    groupName: ConsumerGroup
+    namesrvAddr: 127.0.0.1:9876
+    tag: test
+    topic: test-topic
+  producer:
+    groupName: ProducerGroup
+    instanceName: ProducerGroup
+    maxMessageSize: 131072
+    namesrvAddr: 127.0.0.1:9876
+    sendMsgTimeout: 10000
+    tag: test
+    topic: test-topic
