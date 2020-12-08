@@ -34,5 +34,4 @@ public class ExportExcelController {
     public void exportPost(HttpServletResponse response){
          poiDemoService.export(response);
     }
-    HashMap
 }
