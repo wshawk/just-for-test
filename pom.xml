@@ -20,6 +20,7 @@
         <module>hutool-excel</module>
         <module>test-for-daily</module>
         <module>rocketmq</module>
+        <module>learn-cloud-alibaba</module>
     </modules>
 
 
