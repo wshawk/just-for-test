@@ -29,7 +29,7 @@ public class POIDemoServiceImpl implements POIDemoService {
     private static final Logger logger = LoggerFactory.getLogger(POIDemoServiceImpl.class);
     @Override
     public void export(HttpServletResponse response) {
-        List<TestEntity> list = getTestEntityList(50);
+        List<TestEntity> list = getTestEntityList(1048577);
         String[] titles = {"code","name","sex"};
         /**
          * 忽略不需要映射的字段
