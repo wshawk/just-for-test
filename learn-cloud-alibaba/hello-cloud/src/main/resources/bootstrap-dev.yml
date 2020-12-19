@@ -1,5 +1,5 @@
 server:
-  port: 39616
+  port: 39612
 spring:
   application:
     name: hello-cloud
