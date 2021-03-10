@@ -24,10 +24,13 @@ public class ExportExcelController {
 
     @GetMapping("/export")
     public void export(HttpServletResponse response){
-        long startTime = System.currentTimeMillis();    //获取开始时间
+        //获取开始时间
+        long startTime = System.currentTimeMillis();
         poiDemoService.export(response);
-        long endTime = System.currentTimeMillis();    //获取结束时间
-        System.out.println("程序运行时间：" + (endTime - startTime)/1000 + "s");    //输出程序运行时间
+        //获取结束时间
+        long endTime = System.currentTimeMillis();
+        //输出程序运行时间
+        System.out.println("程序运行时间：" + (endTime - startTime)/1000 + "s");
     }
 
 }
