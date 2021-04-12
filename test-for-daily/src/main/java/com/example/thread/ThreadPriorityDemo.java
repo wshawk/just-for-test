@@ -4,7 +4,7 @@ package com.example.thread;
  * @author wsHawk
  * @Title: ThreadPriorityDemo
  * @ProjectName just-for-test
- * @Description: TODO
+ * @Description:
  * @since 2021/4/12 21:28
  */
 public class ThreadPriorityDemo {
