@@ -1,4 +1,4 @@
-package com.example.test.async;
+package com.example.test;
 
 /**
  * @author wsHawk
