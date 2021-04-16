@@ -1,7 +1,5 @@
 package com.example.test;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 /**
  * @author wsHawk
  * @Title: TestVolatile
@@ -10,49 +8,36 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @since 2021/4/12 20:25
  */
 public class TestVolatile {
-    volatile int i = 0;
-    public static void main(String[] args) {
-        TestVolatile testVolatile = new TestVolatile();
-        AtomicBoolean flag = new AtomicBoolean(true);
-        new Thread(() ->{
-            while (flag.get()){
-                int j = testVolatile.getI();
-                if ((j & 1) == 1){
-                    System.out.println("A");
-                }
-                testVolatile.setI(j + 1);
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-                if (j == 10){
-                    flag.set(false);
+    volatile static int signal = 0;
+    static class ThreadA implements Runnable{
+        @Override
+        public void run() {
+            while (signal < 5) {
+                if (signal % 2 == 0) {
+                    System.out.println("threadA: " + signal);
+                    synchronized (this) {
+                        signal++;
+                    }
                 }
             }
-        }).start();
-        new Thread(() ->{
-            while (flag.get()){
-                int j = testVolatile.getI();
-                if ((j & 1) != 1){
-                    System.out.println("B");
-                }
-                testVolatile.setI(j + 1);
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-                if (j == 10){
-                    flag.set(false);
+        }
+    }
+    static class ThreadB implements Runnable {
+        @Override
+        public void run() {
+            while (signal < 5) {
+                if (signal % 2 == 1) {
+                    System.out.println("threadB: " + signal);
+                    synchronized (this) {
+                        signal = signal + 1;
+                    }
                 }
             }
-        }).start();
+        }
     }
-    int getI(){
-        return i;
-    }
-    void setI(int i){
-        this.i = i;
+    public static void main(String[] args) throws InterruptedException {
+        new Thread(new ThreadA()).start();
+        Thread.sleep(1000);
+        new Thread(new ThreadB()).start();
     }
 }
